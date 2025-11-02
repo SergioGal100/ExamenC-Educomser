@@ -38,6 +38,7 @@
             button3 = new Button();
             tabControl = new TabControl();
             tabTriangulo = new TabPage();
+            buttonDibujaTriangulo = new Button();
             lblPuntoC = new Label();
             lblPuntoB = new Label();
             lblPuntoA = new Label();
@@ -46,10 +47,31 @@
             textBoxB = new TextBox();
             textBoxA = new TextBox();
             tabRectangulo = new TabPage();
+            panelRectangulo = new Panel();
+            textBoxBRec = new TextBox();
+            textBoxARec = new TextBox();
+            label4 = new Label();
+            label3 = new Label();
+            buttonDibRect = new Button();
             tabParalelogramo = new TabPage();
-            buttonDibujaTriangulo = new Button();
+            textBoxDesplazamiento = new TextBox();
+            label7 = new Label();
+            textBoxAltura = new TextBox();
+            textBoxBase = new TextBox();
+            label6 = new Label();
+            label5 = new Label();
+            button4 = new Button();
+            panel1 = new Panel();
+            tabPila = new TabPage();
+            textBoxStack = new TextBox();
+            button6 = new Button();
+            InsertarPila = new Button();
+            listBoxStack = new ListBox();
             tabControl.SuspendLayout();
             tabTriangulo.SuspendLayout();
+            tabRectangulo.SuspendLayout();
+            tabParalelogramo.SuspendLayout();
+            tabPila.SuspendLayout();
             SuspendLayout();
             // 
             // label1
@@ -104,7 +126,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(81, 179);
+            button2.Location = new Point(81, 178);
             button2.Name = "button2";
             button2.Size = new Size(165, 23);
             button2.TabIndex = 6;
@@ -127,6 +149,7 @@
             tabControl.Controls.Add(tabTriangulo);
             tabControl.Controls.Add(tabRectangulo);
             tabControl.Controls.Add(tabParalelogramo);
+            tabControl.Controls.Add(tabPila);
             tabControl.Location = new Point(344, 38);
             tabControl.Name = "tabControl";
             tabControl.SelectedIndex = 0;
@@ -150,7 +173,16 @@
             tabTriangulo.TabIndex = 0;
             tabTriangulo.Text = "Triangulo";
             tabTriangulo.UseVisualStyleBackColor = true;
-            tabTriangulo.Click += tabTriangulo_Click;
+            // 
+            // buttonDibujaTriangulo
+            // 
+            buttonDibujaTriangulo.Location = new Point(67, 136);
+            buttonDibujaTriangulo.Name = "buttonDibujaTriangulo";
+            buttonDibujaTriangulo.Size = new Size(244, 23);
+            buttonDibujaTriangulo.TabIndex = 7;
+            buttonDibujaTriangulo.Text = "DIBUJA TRIANGULO";
+            buttonDibujaTriangulo.UseVisualStyleBackColor = true;
+            buttonDibujaTriangulo.Click += dibujaTriangulo;
             // 
             // lblPuntoC
             // 
@@ -210,6 +242,12 @@
             // 
             // tabRectangulo
             // 
+            tabRectangulo.Controls.Add(panelRectangulo);
+            tabRectangulo.Controls.Add(textBoxBRec);
+            tabRectangulo.Controls.Add(textBoxARec);
+            tabRectangulo.Controls.Add(label4);
+            tabRectangulo.Controls.Add(label3);
+            tabRectangulo.Controls.Add(buttonDibRect);
             tabRectangulo.Location = new Point(4, 24);
             tabRectangulo.Name = "tabRectangulo";
             tabRectangulo.Padding = new Padding(3);
@@ -218,8 +256,70 @@
             tabRectangulo.Text = "Rectángulo";
             tabRectangulo.UseVisualStyleBackColor = true;
             // 
+            // panelRectangulo
+            // 
+            panelRectangulo.Location = new Point(149, 26);
+            panelRectangulo.Margin = new Padding(3, 2, 3, 2);
+            panelRectangulo.Name = "panelRectangulo";
+            panelRectangulo.Size = new Size(219, 94);
+            panelRectangulo.TabIndex = 9;
+            panelRectangulo.Paint += panelRectangulo_paint;
+            // 
+            // textBoxBRec
+            // 
+            textBoxBRec.Location = new Point(66, 49);
+            textBoxBRec.Margin = new Padding(3, 2, 3, 2);
+            textBoxBRec.Name = "textBoxBRec";
+            textBoxBRec.Size = new Size(28, 23);
+            textBoxBRec.TabIndex = 6;
+            // 
+            // textBoxARec
+            // 
+            textBoxARec.Location = new Point(66, 22);
+            textBoxARec.Margin = new Padding(3, 2, 3, 2);
+            textBoxARec.Name = "textBoxARec";
+            textBoxARec.Size = new Size(28, 23);
+            textBoxARec.TabIndex = 5;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(19, 51);
+            label4.Name = "label4";
+            label4.Size = new Size(37, 15);
+            label4.TabIndex = 2;
+            label4.Text = "Largo";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(16, 24);
+            label3.Name = "label3";
+            label3.Size = new Size(42, 15);
+            label3.TabIndex = 1;
+            label3.Text = "Ancho";
+            // 
+            // buttonDibRect
+            // 
+            buttonDibRect.Location = new Point(157, 141);
+            buttonDibRect.Margin = new Padding(3, 2, 3, 2);
+            buttonDibRect.Name = "buttonDibRect";
+            buttonDibRect.Size = new Size(197, 22);
+            buttonDibRect.TabIndex = 0;
+            buttonDibRect.Text = "DIBUJAR RECTANGULO";
+            buttonDibRect.UseVisualStyleBackColor = true;
+            buttonDibRect.Click += buttonDibRect_Click;
+            // 
             // tabParalelogramo
             // 
+            tabParalelogramo.Controls.Add(textBoxDesplazamiento);
+            tabParalelogramo.Controls.Add(label7);
+            tabParalelogramo.Controls.Add(textBoxAltura);
+            tabParalelogramo.Controls.Add(textBoxBase);
+            tabParalelogramo.Controls.Add(label6);
+            tabParalelogramo.Controls.Add(label5);
+            tabParalelogramo.Controls.Add(button4);
+            tabParalelogramo.Controls.Add(panel1);
             tabParalelogramo.Location = new Point(4, 24);
             tabParalelogramo.Name = "tabParalelogramo";
             tabParalelogramo.Padding = new Padding(3);
@@ -228,15 +328,126 @@
             tabParalelogramo.Text = "Paralelogramo";
             tabParalelogramo.UseVisualStyleBackColor = true;
             // 
-            // buttonDibujaTriangulo
+            // textBoxDesplazamiento
             // 
-            buttonDibujaTriangulo.Location = new Point(67, 136);
-            buttonDibujaTriangulo.Name = "buttonDibujaTriangulo";
-            buttonDibujaTriangulo.Size = new Size(244, 23);
-            buttonDibujaTriangulo.TabIndex = 7;
-            buttonDibujaTriangulo.Text = "DIBUJA TRIANGULO";
-            buttonDibujaTriangulo.UseVisualStyleBackColor = true;
-            buttonDibujaTriangulo.Click += dibujaTriangulo;
+            textBoxDesplazamiento.Location = new Point(65, 89);
+            textBoxDesplazamiento.Margin = new Padding(3, 2, 3, 2);
+            textBoxDesplazamiento.Name = "textBoxDesplazamiento";
+            textBoxDesplazamiento.Size = new Size(45, 23);
+            textBoxDesplazamiento.TabIndex = 7;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(16, 92);
+            label7.Name = "label7";
+            label7.Size = new Size(39, 15);
+            label7.TabIndex = 6;
+            label7.Text = "Offset";
+            // 
+            // textBoxAltura
+            // 
+            textBoxAltura.Location = new Point(65, 61);
+            textBoxAltura.Margin = new Padding(3, 2, 3, 2);
+            textBoxAltura.Name = "textBoxAltura";
+            textBoxAltura.Size = new Size(45, 23);
+            textBoxAltura.TabIndex = 5;
+            // 
+            // textBoxBase
+            // 
+            textBoxBase.Location = new Point(65, 34);
+            textBoxBase.Margin = new Padding(3, 2, 3, 2);
+            textBoxBase.Name = "textBoxBase";
+            textBoxBase.Size = new Size(45, 23);
+            textBoxBase.TabIndex = 4;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(16, 66);
+            label6.Name = "label6";
+            label6.Size = new Size(39, 15);
+            label6.TabIndex = 3;
+            label6.Text = "Altura";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(16, 37);
+            label5.Name = "label5";
+            label5.Size = new Size(31, 15);
+            label5.TabIndex = 2;
+            label5.Text = "Base";
+            // 
+            // button4
+            // 
+            button4.Location = new Point(146, 132);
+            button4.Margin = new Padding(3, 2, 3, 2);
+            button4.Name = "button4";
+            button4.Size = new Size(219, 22);
+            button4.TabIndex = 1;
+            button4.Text = "DIBUJA PARALELOGRAMO";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += dibujaParalelogram;
+            // 
+            // panel1
+            // 
+            panel1.Location = new Point(146, 34);
+            panel1.Margin = new Padding(3, 2, 3, 2);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(219, 94);
+            panel1.TabIndex = 0;
+            panel1.Paint += panelParalelo_paint;
+            // 
+            // tabPila
+            // 
+            tabPila.Controls.Add(listBoxStack);
+            tabPila.Controls.Add(textBoxStack);
+            tabPila.Controls.Add(button6);
+            tabPila.Controls.Add(InsertarPila);
+            tabPila.Location = new Point(4, 24);
+            tabPila.Name = "tabPila";
+            tabPila.Padding = new Padding(3);
+            tabPila.Size = new Size(387, 165);
+            tabPila.TabIndex = 3;
+            tabPila.Text = "Pila";
+            tabPila.UseVisualStyleBackColor = true;
+            // 
+            // textBoxStack
+            // 
+            textBoxStack.Location = new Point(98, 9);
+            textBoxStack.Name = "textBoxStack";
+            textBoxStack.Size = new Size(283, 23);
+            textBoxStack.TabIndex = 2;
+            // 
+            // button6
+            // 
+            button6.Location = new Point(17, 48);
+            button6.Name = "button6";
+            button6.Size = new Size(75, 23);
+            button6.TabIndex = 1;
+            button6.Text = "Mostar Pila";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += buttonShowStack;
+            // 
+            // InsertarPila
+            // 
+            InsertarPila.Location = new Point(17, 9);
+            InsertarPila.Name = "InsertarPila";
+            InsertarPila.Size = new Size(75, 23);
+            InsertarPila.TabIndex = 0;
+            InsertarPila.Text = "Insertar";
+            InsertarPila.UseVisualStyleBackColor = true;
+            InsertarPila.Click += buttonInsertStack;
+            // 
+            // listBoxStack
+            // 
+            listBoxStack.FormattingEnabled = true;
+            listBoxStack.ItemHeight = 15;
+            listBoxStack.Location = new Point(98, 45);
+            listBoxStack.Name = "listBoxStack";
+            listBoxStack.Size = new Size(273, 94);
+            listBoxStack.TabIndex = 3;
             // 
             // Form1
             // 
@@ -254,9 +465,16 @@
             Controls.Add(label1);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             tabControl.ResumeLayout(false);
             tabTriangulo.ResumeLayout(false);
             tabTriangulo.PerformLayout();
+            tabRectangulo.ResumeLayout(false);
+            tabRectangulo.PerformLayout();
+            tabParalelogramo.ResumeLayout(false);
+            tabParalelogramo.PerformLayout();
+            tabPila.ResumeLayout(false);
+            tabPila.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -283,5 +501,24 @@
         private Label lblPuntoB;
         private Label lblPuntoA;
         private Button buttonDibujaTriangulo;
+        private TextBox textBoxBRec;
+        private TextBox textBoxARec;
+        private Label label4;
+        private Label label3;
+        private Button buttonDibRect;
+        private Panel panelRectangulo;
+        private Panel panel1;
+        private Label label6;
+        private Label label5;
+        private Button button4;
+        private TextBox textBoxAltura;
+        private TextBox textBoxBase;
+        private TextBox textBoxDesplazamiento;
+        private Label label7;
+        private TabPage tabPila;
+        private TextBox textBoxStack;
+        private Button button6;
+        private Button InsertarPila;
+        private ListBox listBoxStack;
     }
 }
